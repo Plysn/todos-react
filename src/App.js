@@ -6,22 +6,25 @@ import "./css/styles.css";
 import React, { useState } from "react";
 
 function App() {
-  const [state, setState] = useState([
-    {
-      id: 1,
-      text: "Learn",
-      completed: true,
-    },
-    {
-      id: 2,
-      text: "Play",
-      completed: true,
-    },
-  ]);
+  const [state, setState] = useState([]);
+
+  function addTodo(todo) {
+    // console.log("todo:", todo);
+    setState((prev) => [...prev, todo]);
+    // localStorage.setItem("todos", JSON.stringify([todos]));
+  }
+  // console.log(state);
+  function deleteTodo(id) {
+    console.log(id);
+    const newTodos = state.filter((todo) => todo.id !== id);
+    setState(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  }
+
   return (
     <div id="test">
-      <Header />
-      <TodoList todos={state} />
+      <Header addTodo={addTodo} />
+      <TodoList todos={state} deleteTodo={deleteTodo} />
     </div>
   );
 }

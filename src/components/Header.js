@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Header() {
+function Header(props) {
+  const [text, setText] = useState("");
+  const { addTodo } = props;
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (text) {
+      // console.log(text);
+      addTodo({
+        id: new Date().toISOString(),
+        text,
+        status: null,
+      });
+      setText("");
+    }
+  }
   return (
     <form className="header">
-      <input type="text" placeholder="Enter todo" />
-      <button type="submit" id="button-add" class="button">
+      <input
+        type="text"
+        placeholder="Enter todo"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button
+        type="submit"
+        id="button-add"
+        class="button"
+        onClick={(e) => handleSubmit(e)}
+      >
         Add
       </button>
     </form>
