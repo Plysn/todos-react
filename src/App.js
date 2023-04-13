@@ -9,13 +9,9 @@ function App() {
   const [state, setState] = useState([]);
 
   function addTodo(todo) {
-    // console.log("todo:", todo);
     setState((prev) => [...prev, todo]);
-    // localStorage.setItem("todos", JSON.stringify([todos]));
   }
-  // console.log(state);
   function deleteTodo(id) {
-    console.log(id);
     const newTodos = state.filter((todo) => todo.id !== id);
     setState(newTodos);
     localStorage.setItem("todos", JSON.stringify(newTodos));

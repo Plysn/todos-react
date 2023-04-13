@@ -3,7 +3,6 @@ import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
   const { todos } = props;
-  // console.log(todos);
 
   return (
     <ul class="todo-list">

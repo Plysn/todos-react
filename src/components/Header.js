@@ -6,7 +6,6 @@ function Header(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (text) {
-      // console.log(text);
       addTodo({
         id: new Date().toISOString(),
         text,

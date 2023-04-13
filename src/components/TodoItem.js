@@ -1,13 +1,7 @@
 import React, { memo } from "react";
 
 const TodoItem = (props) => {
-  // console.log(props);
-  // const li = document.querySelector("li");
-  // console.log(li);
-
-  function handleDelete(e) {
-    console.log(e.target.value);
-  }
+  function handleDelete(e) {}
 
   return (
     <li
