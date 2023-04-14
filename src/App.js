@@ -11,10 +11,11 @@ function App() {
   function addTodo(todo) {
     setState((prev) => [...prev, todo]);
   }
+
   function deleteTodo(id) {
     const newTodos = state.filter((todo) => todo.id !== id);
     setState(newTodos);
-    localStorage.setItem("todos", JSON.stringify(newTodos));
+    console.log(id);
   }
 
   return (
@@ -24,36 +25,5 @@ function App() {
     </div>
   );
 }
-
-// class App extends React.PureComponent {
-//   // let text = input.value.trim();
-//   // let id = new Date().toISOString();
-
-//   state = {
-//     todos: [
-//       {
-//         id: 1,
-//         text: 'Learn',
-//         completed: true
-//       },
-//       {
-//         id: 2,
-//         text: 'Play',
-//         completed: true
-//       }
-//     ],
-//   }
-
-//   render() {
-//     const {todos} = this.state
-
-//     return (
-//       <div id="test">
-//         <Header />
-//         <TodoList todos = {todos}/>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;

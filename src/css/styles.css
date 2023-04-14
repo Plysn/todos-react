@@ -67,7 +67,8 @@ li span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 70%;
+  width: 78%;
+
 }
 
 li i {
@@ -80,7 +81,7 @@ li i:hover {
   color: #ccc;
 }
 
-.completed span {
+.completed {
   color: #ccc;
   text-decoration: line-through;
 }
