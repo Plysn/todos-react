@@ -1,22 +1,29 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 
 const TodoItem = (props) => {
-  function handleDelete(e) {}
+  const { deleteTodo } = props;
+  const [isCompleted, setCompleted] = useState(true);
+
+  function handleCompleted() {
+    setCompleted(!isCompleted);
+  }
 
   return (
-    <li
-      className={props.status}
-      onClick={(e) => {
-        e.target.parentNode.classList.add("completed");
-      }}
-    >
-      <span>{props.text}</span>
+    <li>
+      <span
+        className={!isCompleted ? "completed" : ""}
+        onClick={(e) => {
+          handleCompleted(e);
+        }}
+      >
+        {props.text}
+      </span>
       <div class="icon">
         <i class="fa-solid fa-pen-to-square edit"></i>
         <i
           class="fa-solid fa-trash delete"
-          onClick={(e) => {
-            handleDelete(e);
+          onClick={() => {
+            deleteTodo(props.id);
           }}
         ></i>
       </div>
