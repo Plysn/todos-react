@@ -12,14 +12,11 @@ const TodoItem = (props) => {
 
   function handleEdit() {
     if (editText) {
-      editTodo(
-        {
-          id: props.id,
-          text: editText,
-          status: null,
-        },
-        props.id
-      );
+      editTodo({
+        id: props.id,
+        text: editText,
+        status: props.status,
+      });
       setEditing(false);
     }
   }

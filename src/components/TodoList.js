@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
-  const { todos, deleteTodo, editTodo, editingId, setEditingId } = props;
+  const { todos, deleteTodo, editTodo } = props;
 
   return (
     <ul className="todo-list">
@@ -12,8 +12,6 @@ const TodoList = (props) => {
           {...todo}
           deleteTodo={deleteTodo}
           editTodo={editTodo}
-          editingId={editingId}
-          setEditingId={setEditingId}
         />
       ))}
     </ul>
