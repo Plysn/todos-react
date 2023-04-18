@@ -25,7 +25,7 @@ function Header(props) {
       <button
         type="submit"
         id="button-add"
-        class="button"
+        className="button"
         onClick={(e) => handleSubmit(e)}
       >
         Add

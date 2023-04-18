@@ -2,12 +2,19 @@ import React, { memo } from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
-  const { todos, deleteTodo } = props;
+  const { todos, deleteTodo, editTodo, editingId, setEditingId } = props;
 
   return (
-    <ul class="todo-list">
-      {todos.map((todo, index) => (
-        <TodoItem {...todo} deleteTodo={deleteTodo} />
+    <ul className="todo-list">
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          {...todo}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+          editingId={editingId}
+          setEditingId={setEditingId}
+        />
       ))}
     </ul>
   );
