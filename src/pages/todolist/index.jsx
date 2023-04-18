@@ -1,11 +1,10 @@
-import "./App.css";
-import Header from "./components/Header";
-import TodoList from "./components/TodoList";
-import "./css/styles.css";
+import Header from "../../components/Header";
+import "../../css/styles.css";
 // import { render } from "@testing-library/react";
 import React, { useState } from "react";
+import TodoListInner from "../../components/TodoList"
 
-function App() {
+function TodoList() {
   const [state, setState] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
@@ -34,12 +33,11 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(newState));
   }
 
-  return (
-    <div id="test">
-      <Header addTodo={addTodo} />
-      <TodoList todos={state} deleteTodo={deleteTodo} editTodo={editTodo} />
-    </div>
-  );
+  
+  return ( <div id="test">
+  <Header addTodo={addTodo} />
+  <TodoListInner todos={state} deleteTodo={deleteTodo} editTodo={editTodo} />
+</div>   );
 }
 
-export default App;
+export default TodoList;

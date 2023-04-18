@@ -106,3 +106,40 @@ li i:hover {
 .edit_item button {
   margin-right: 0;
 }
+
+/* Home */
+.home {
+  width: 300px;
+  height: 120px;
+  padding: 15px 30px;
+}
+
+.home div {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.home-button {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Login form */
+.login-form {
+  width: 300px;
+  height: 220px;
+  padding: 15px 30px;
+}
+
+.loginform span {
+  text-align: center;
+}
+
+.input-login {
+  padding: 0 5px;
+  width: 100%;
+  margin: 10px 0;
+  height: 35px;
+}
+
