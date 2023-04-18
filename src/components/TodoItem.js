@@ -1,32 +1,76 @@
 import React, { memo, useState } from "react";
 
 const TodoItem = (props) => {
-  const { deleteTodo } = props;
+  const { deleteTodo, editTodo } = props;
   const [isCompleted, setCompleted] = useState(true);
+  const [isEditing, setEditing] = useState(false);
+  const [editText, setEditText] = useState();
 
   function handleCompleted() {
     setCompleted(!isCompleted);
   }
 
+  function handleEdit() {
+    if (editText) {
+      editTodo({
+        id: props.id,
+        text: editText,
+        status: props.status,
+      });
+      setEditing(false);
+    }
+  }
+
   return (
-    <li>
-      <span
-        className={!isCompleted ? "completed" : ""}
-        onClick={(e) => {
-          handleCompleted(e);
-        }}
-      >
-        {props.text}
-      </span>
-      <div class="icon">
-        <i class="fa-solid fa-pen-to-square edit"></i>
-        <i
-          class="fa-solid fa-trash delete"
-          onClick={() => {
-            deleteTodo(props.id);
-          }}
-        ></i>
-      </div>
+    <li className={!isEditing ? "isEditing" : ""}>
+      {isEditing ? (
+        <div className="edit_item">
+          <input
+            type="text"
+            placeholder="Edit todo"
+            defaultValue={props.text}
+            onChange={(e) => {
+              setEditText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="button"
+            onClick={(e) => {
+              handleEdit(e);
+            }}
+          >
+            Save
+          </button>
+        </div>
+      ) : (
+        <div className="main_item">
+          <span
+            className={!isCompleted ? "completed" : ""}
+            onClick={(e) => {
+              handleCompleted(e);
+            }}
+          >
+            {props.text}
+          </span>
+          <div className="icon">
+            <i
+              className="fa-solid fa-pen-to-square edit"
+              onClick={() => {
+                setEditing(!isEditing);
+              }}
+            ></i>
+            <i
+              className="fa-solid fa-trash delete"
+              onClick={() => {
+                const confirmed = window.confirm("Bạn có chắc chắn muốn xóa?");
+                if (confirmed) {
+                  deleteTodo(props.id);
+                }
+              }}
+            ></i>
+          </div>
+        </div>
+      )}
     </li>
   );
 };

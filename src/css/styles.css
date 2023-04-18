@@ -57,11 +57,17 @@ input:focus {
 li {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 8px 10px;
   border-bottom: 1px solid #ccc;
 }
 
+li .main_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
 
 li span {
   white-space: nowrap;
@@ -84,4 +90,19 @@ li i:hover {
 .completed {
   color: #ccc;
   text-decoration: line-through;
+}
+
+/* Edit */
+.edit_item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit_item input {
+  width: 100%;
+  border: none;
+}
+
+.edit_item button {
+  margin-right: 0;
 }
