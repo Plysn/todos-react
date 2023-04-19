@@ -9,7 +9,7 @@ function Header(props) {
       addTodo({
         id: new Date().toISOString(),
         text,
-        status: null,
+        isCompleted: false,
       });
       setText("");
     }
