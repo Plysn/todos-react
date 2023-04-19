@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = (props) => {
+const TodoListInner = (props) => {
   const { todos, deleteTodo, editTodo } = props;
 
   return (
@@ -18,4 +18,4 @@ const TodoList = (props) => {
   );
 };
 
-export default memo(TodoList);
+export default memo(TodoListInner);
