@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import instance from "../../services/baseApi";
 import "../../css/styles.css";
 
 function Login() {
   const navigate = useNavigate();
+  const [isSuccess, setIsSuccess] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,10 +22,12 @@ function Login() {
             username.value === user.username &&
             password.value === user.password
           ) {
-            console.log(true);
             navigate("/todos");
             break;
-          } else console.log(false);
+          } else {
+            setIsSuccess(false);
+            break;
+          }
         }
       })
       .catch((err) => {
@@ -39,15 +42,26 @@ function Login() {
         <input
           type="text"
           placeholder="Username"
-          className="input-login username"
+          className={
+            isSuccess
+              ? "input-login username "
+              : "input-login username input-error"
+          }
           name="username"
         />
         <input
           type="password"
           placeholder="Password"
-          className="input-login password"
+          className={
+            isSuccess
+              ? "input-login password "
+              : "input-login password input-error"
+          }
           name="password"
         />
+        <span className={isSuccess ? "login-success" : "login-error"}>
+          *Tên đăng nhập hoặc mật khẩu không chính xác!
+        </span>
         <button className="input-login button" type="submit">
           Login
         </button>
