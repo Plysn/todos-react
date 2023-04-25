@@ -1,21 +1,15 @@
 import React, { memo, useState } from "react";
 
 const TodoItem = (props) => {
-  const { deleteTodo, editTodo } = props;
-  const [isCompleted, setCompleted] = useState(true);
+  const { isCompleted, id, deleteTodo, editTodo } = props;
   const [isEditing, setEditing] = useState(false);
   const [editText, setEditText] = useState();
-
-  function handleCompleted() {
-    setCompleted(!isCompleted);
-  }
 
   function handleEdit() {
     if (editText) {
       editTodo({
-        id: props.id,
         text: editText,
-        status: props.status,
+        id,
       });
       setEditing(false);
     }
@@ -45,9 +39,9 @@ const TodoItem = (props) => {
       ) : (
         <div className="main_item">
           <span
-            className={!isCompleted ? "completed" : ""}
+            className={isCompleted ? "completed" : ""}
             onClick={(e) => {
-              handleCompleted(e);
+              editTodo({ isCompleted: !isCompleted, id });
             }}
           >
             {props.text}

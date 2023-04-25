@@ -123,6 +123,7 @@ li i:hover {
   margin: 15px;
   display: flex;
   justify-content: space-between;
+  height: 35px;
 }
 
 /* Login form */
@@ -141,5 +142,25 @@ li i:hover {
   width: 100%;
   margin: 10px 0;
   height: 35px;
+}
+
+.password {
+  margin-bottom: 0;
+}
+
+/* Error */
+.input-error {
+  border-radius: 3px;
+  border: 1px solid red;
+}
+
+.login-success {
+  color: transparent;
+  font-size: 10px;
+}
+
+.login-error {
+  color: red;
+  font-size: 10px;
 }
 

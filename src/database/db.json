@@ -1,7 +1,52 @@
-{"users": [
-  {
-    "id": 1,
-    "username": "Nguyen Van A",
-    "password": "123"
-  }
-]}
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Nguyen Van A",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "username": "Nguyen Van B",
+      "password": "123"
+    }
+  ],
+  "todos": [
+    {
+      "id": "1",
+      "text": "Do Yoga",
+      "isCompleted": false,
+      "user_id": 1
+    },
+    {
+      "id": "2",
+      "text": "Lerning English",
+      "isCompleted": false,
+      "user_id": 1
+    },
+    {
+      "id": "2023-04-19T03:44:54.327Z",
+      "text": "111",
+      "isCompleted": true,
+      "user_id": 1
+    },
+    {
+      "id": "2023-04-24T10:41:53.275Z",
+      "text": "hehe123",
+      "isCompleted": true,
+      "user_id": 1
+    },
+    {
+      "id": "2023-04-24T10:53:54.530Z",
+      "text": "123",
+      "isCompleted": true,
+      "user_id": 1
+    },
+    {
+      "id": "2023-04-24T11:02:04.551Z",
+      "text": "123123",
+      "isCompleted": false,
+      "user_id": 1
+    }
+  ]
+}
