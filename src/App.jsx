@@ -1,14 +1,25 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "./pages/login";
-import TodoList from "./pages/todolist";
-import Home from "./pages/home";
+import PrivateRoute from "./route/PrivateRoute";
+import { routers } from "./router";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/todos" element={<TodoList />} />
+      {routers.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            element={
+              route.isPrivate ? (
+                <PrivateRoute>{route.element}</PrivateRoute>
+              ) : (
+                route.element
+              )
+            }
+          />
+        );
+      })}
     </Routes>
   );
 }

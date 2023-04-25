@@ -5,45 +5,40 @@ import "../../css/styles.css";
 
 function Login() {
   const navigate = useNavigate();
-  const [isSuccess, setIsSuccess] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { username, password } = e.target.elements;
 
     // calling api
-
-    instance
-      .get("/users")
-      .then((res) => {
-        //map data so sanh user, password
-        for (const user of res.data) {
-          if (
-            username.value === user.username &&
-            password.value === user.password
-          ) {
-            navigate("/todos");
-            break;
-          } else {
-            setIsSuccess(false);
-            break;
-          }
-        }
-      })
-      .catch((err) => {
-        console.log("err", err);
+    try {
+      const res = await instance.get("/users");
+      const isValid = res.data.some((user) => {
+        return (
+          username.value === user.username && password.value === user.password
+        );
       });
+      if (isValid) {
+        localStorage.setItem("isLogin", isValid);
+        navigate("/todos");
+      } else {
+        setIsError(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div>
-      <form className="login-form" onSubmit={(e) => handleSubmit(e, navigate)}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <span>LOGIN</span>
         <input
           type="text"
           placeholder="Username"
           className={
-            isSuccess
+            !isError
               ? "input-login username "
               : "input-login username input-error"
           }
@@ -53,13 +48,13 @@ function Login() {
           type="password"
           placeholder="Password"
           className={
-            isSuccess
+            !isError
               ? "input-login password "
               : "input-login password input-error"
           }
           name="password"
         />
-        <span className={isSuccess ? "login-success" : "login-error"}>
+        <span className={!isError ? "login-success" : "login-error"}>
           *Tên đăng nhập hoặc mật khẩu không chính xác!
         </span>
         <button className="input-login button" type="submit">

@@ -2,13 +2,8 @@ import React, { memo, useState } from "react";
 
 const TodoItem = (props) => {
   const { isCompleted, id, deleteTodo, editTodo } = props;
-  // const [isCompleted, setCompleted] = useState(true);
   const [isEditing, setEditing] = useState(false);
   const [editText, setEditText] = useState();
-
-  // function handleCompleted() {
-  //   setCompleted(!isCompleted);
-  // }
 
   function handleEdit() {
     if (editText) {

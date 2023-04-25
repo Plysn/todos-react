@@ -9,58 +9,52 @@ function TodoList() {
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    instance
-      .get("/todos")
-      .then((res) => {
-        setState(res.data);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
+    const fetchData = async () => {
+      try {
+        const todoList = await instance.get("/todos");
+        // if status !== 2xx || 3xx --> return
+        setState(todoList.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
   }, []);
 
-  function addTodo(todo) {
-    instance
-      .post("/todos", { ...todo, user_id: 1 })
-      .then((res) => {
-        setState((prev) => {
-          const todos = [...prev, res.data];
-          return todos;
-        });
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+  async function addTodo(todo) {
+    try {
+      const res = await instance.post("/todos", { ...todo, user_id: 1 });
+      setState((prev) => {
+        const todos = [...prev, res.data];
+        return todos;
       });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  function deleteTodo(id) {
-    instance
-      .delete(`/todos/${id}`)
-      .then((res) => {
-        const newTodos = state.filter((todo) => todo.id !== id);
-        setState(newTodos);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async function deleteTodo(id) {
+    try {
+      const res = await instance.delete(`/todos/${id}`);
+      const newTodos = state.filter((todo) => todo.id !== id);
+      setState(newTodos);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  function editTodo(todos) {
-    console.log(todos);
-    instance
-      .patch(`/todos/${todos.id}`, todos)
-      .then((res) => {
-        const newState = [...state];
-        const index = newState.findIndex((todo) => {
-          return todo.id === todos.id;
-        });
-        newState[index] = res.data;
-        setState(newState);
-      })
-      .catch((err) => {
-        console.log(err);
+  async function editTodo(todos) {
+    try {
+      const res = await instance.patch(`/todos/${todos.id}`, todos);
+      const newState = [...state];
+      const index = newState.findIndex((todo) => {
+        return todo.id === todos.id;
       });
+      newState[index] = res.data;
+      setState(newState);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (

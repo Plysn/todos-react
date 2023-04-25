@@ -15,22 +15,24 @@ function Header(props) {
     }
   }
   return (
-    <form className="header">
-      <input
-        type="text"
-        placeholder="Enter todo"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button
-        type="submit"
-        id="button-add"
-        className="button"
-        onClick={(e) => handleSubmit(e)}
-      >
-        Add
-      </button>
-    </form>
+    <>
+      <form className="header">
+        <input
+          type="text"
+          placeholder="Enter todo"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button
+          type="submit"
+          id="button-add"
+          className="button"
+          onClick={(e) => handleSubmit(e)}
+        >
+          Add
+        </button>
+      </form>
+    </>
   );
 }
 
