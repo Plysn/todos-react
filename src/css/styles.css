@@ -127,6 +127,11 @@ li i:hover {
 }
 
 /* Login form */
+.login-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .login-form {
   width: 300px;
   height: 220px;
@@ -162,5 +167,10 @@ li i:hover {
 .login-error {
   color: red;
   font-size: 10px;
+}
+
+/* Sign up */
+.signup-content {
+  height: 330px;
 }
 

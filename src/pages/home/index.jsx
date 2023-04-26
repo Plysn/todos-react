@@ -14,7 +14,7 @@ function Login() {
   };
 
   return (
-    <div className="home">
+    <div className="home content">
       <div>Bạn đã có tài khoản?</div>
       <div className="home-button">
         <button className="button" onClick={handleSignup}>

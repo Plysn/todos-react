@@ -4,16 +4,29 @@ import "../../css/styles.css";
 import React, { useState, useEffect } from "react";
 import TodoListInner from "../../components/TodoList";
 import instance from "../../services/baseApi";
+import { useNavigate } from "react-router";
 
 function TodoList() {
   const [state, setState] = useState([]);
+  const navigate = useNavigate();
+  const user_id_now = localStorage.getItem("user_id");
+
+  function logout() {
+    localStorage.removeItem("isLogin");
+
+    localStorage.removeItem("user_id");
+    navigate("/login");
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const todoList = await instance.get("/todos");
         // if status !== 2xx || 3xx --> return
-        setState(todoList.data);
+        const list = todoList.data.filter((list) => {
+          return list.user_id === user_id_now;
+        });
+        setState(list);
       } catch (err) {
         console.log(err);
       }
@@ -23,7 +36,10 @@ function TodoList() {
 
   async function addTodo(todo) {
     try {
-      const res = await instance.post("/todos", { ...todo, user_id: 1 });
+      const res = await instance.post("/todos", {
+        ...todo,
+        user_id: user_id_now,
+      });
       setState((prev) => {
         const todos = [...prev, res.data];
         return todos;
@@ -59,12 +75,17 @@ function TodoList() {
 
   return (
     <div id="test">
-      <Header addTodo={addTodo} />
-      <TodoListInner
-        todos={state}
-        deleteTodo={deleteTodo}
-        editTodo={editTodo}
-      />
+      <button className="button logout-btn" onClick={logout}>
+        LOG OUT
+      </button>
+      <div className="content">
+        <Header addTodo={addTodo} />
+        <TodoListInner
+          todos={state}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+        />
+      </div>
     </div>
   );
 }
