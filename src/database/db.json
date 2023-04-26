@@ -17,6 +17,24 @@
       "username": "c",
       "email": "c@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "2023-04-26T10:08:50.606Z",
+      "username": "Nguyen Van A",
+      "email": "ly@gmail.com.vn",
+      "password": "123"
+    },
+    {
+      "id": "2023-04-26T10:28:00.362Z",
+      "username": "eqweqwe",
+      "email": "dfdfdf@dgfdg.vzv",
+      "password": "123"
+    },
+    {
+      "id": "2023-04-26T10:33:30.504Z",
+      "username": "123",
+      "email": "124@sd.vc",
+      "password": "124"
     }
   ],
   "todos": [
@@ -91,6 +109,12 @@
       "text": "c",
       "isCompleted": false,
       "user_id": "2023-04-26T07:58:17.061Z"
+    },
+    {
+      "id": "2023-04-26T10:08:57.957Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "2023-04-26T10:08:50.606Z"
     }
   ]
 }
