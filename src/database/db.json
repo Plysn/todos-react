@@ -1,15 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Nguyen Van A",
       "email": "a@gmail.com",
       "password": "123"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "Nguyen Van B",
       "email": "b@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2023-04-26T07:58:17.061Z",
+      "username": "c",
+      "email": "c@gmail.com",
       "password": "123"
     }
   ],
@@ -73,6 +79,18 @@
       "text": "b123",
       "isCompleted": true,
       "user_id": "2"
+    },
+    {
+      "id": "2023-04-26T07:58:25.999Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "2023-04-26T07:58:17.061Z"
+    },
+    {
+      "id": "2023-04-26T07:58:28.203Z",
+      "text": "c",
+      "isCompleted": false,
+      "user_id": "2023-04-26T07:58:17.061Z"
     }
   ]
 }

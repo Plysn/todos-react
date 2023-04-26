@@ -36,7 +36,6 @@ function SignUp() {
         return;
       }
       localStorage.setItem("user_id", user_id);
-      localStorage.setItem("isLogin", true);
       navigate("/todos");
     } catch (err) {
       console.log(err);

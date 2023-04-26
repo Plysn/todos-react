@@ -21,7 +21,6 @@ function Login() {
         );
       });
       if (user) {
-        localStorage.setItem("isLogin", true);
         localStorage.setItem("user_id", user.id);
         navigate("/todos");
       } else {

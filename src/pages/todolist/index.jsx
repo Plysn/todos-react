@@ -9,11 +9,9 @@ import { useNavigate } from "react-router";
 function TodoList() {
   const [state, setState] = useState([]);
   const navigate = useNavigate();
-  const user_id_now = localStorage.getItem("user_id");
+  const userIdNow = localStorage.getItem("user_id");
 
   function logout() {
-    localStorage.removeItem("isLogin");
-
     localStorage.removeItem("user_id");
     navigate("/login");
   }
@@ -24,7 +22,7 @@ function TodoList() {
         const todoList = await instance.get("/todos");
         // if status !== 2xx || 3xx --> return
         const list = todoList.data.filter((list) => {
-          return list.user_id === user_id_now;
+          return list.user_id === userIdNow;
         });
         setState(list);
       } catch (err) {
@@ -38,7 +36,7 @@ function TodoList() {
     try {
       const res = await instance.post("/todos", {
         ...todo,
-        user_id: user_id_now,
+        user_id: userIdNow,
       });
       setState((prev) => {
         const todos = [...prev, res.data];
