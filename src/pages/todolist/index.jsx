@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import TodoListInner from "../../components/TodoList";
 import instance from "../../services/baseApi";
 import { useNavigate } from "react-router";
+import { pathRouters } from "../../router";
 
 function TodoList() {
   const [state, setState] = useState([]);
@@ -13,7 +14,7 @@ function TodoList() {
 
   function logout() {
     localStorage.removeItem("user_id");
-    navigate("/login");
+    navigate(pathRouters.LOGIN);
   }
 
   useEffect(() => {

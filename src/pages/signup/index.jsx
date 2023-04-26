@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import instance from "../../services/baseApi";
+import { pathRouters } from "../../router";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function SignUp() {
         return;
       }
       localStorage.setItem("user_id", user_id);
-      navigate("/todos");
+      navigate(pathRouters.TODOS);
     } catch (err) {
       console.log(err);
     }

@@ -1,16 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/styles.css";
+import { pathRouters } from "../../router";
 
 function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/login");
+    navigate(pathRouters.LOGIN);
   };
 
   const handleSignup = () => {
-    navigate("/signup");
+    navigate(pathRouters.SIGNUP);
   };
 
   return (
