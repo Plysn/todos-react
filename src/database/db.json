@@ -1,13 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Nguyen Van A",
+      "email": "a@gmail.com",
       "password": "123"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "Nguyen Van B",
+      "email": "b@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2023-04-26T07:58:17.061Z",
+      "username": "c",
+      "email": "c@gmail.com",
       "password": "123"
     }
   ],
@@ -16,37 +24,73 @@
       "id": "1",
       "text": "Do Yoga",
       "isCompleted": false,
-      "user_id": 1
+      "user_id": "1"
     },
     {
       "id": "2",
       "text": "Lerning English",
       "isCompleted": false,
-      "user_id": 1
+      "user_id": "1"
     },
     {
       "id": "2023-04-19T03:44:54.327Z",
       "text": "111",
       "isCompleted": true,
-      "user_id": 1
+      "user_id": "1"
     },
     {
       "id": "2023-04-24T10:41:53.275Z",
       "text": "hehe123",
       "isCompleted": true,
-      "user_id": 1
+      "user_id": "1"
     },
     {
       "id": "2023-04-24T10:53:54.530Z",
       "text": "123",
       "isCompleted": true,
-      "user_id": 1
+      "user_id": "1"
     },
     {
       "id": "2023-04-24T11:02:04.551Z",
       "text": "123123",
       "isCompleted": false,
-      "user_id": 1
+      "user_id": "1"
+    },
+    {
+      "id": "2023-04-25T04:23:21.055Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "1"
+    },
+    {
+      "id": "2023-04-25T04:23:31.621Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "2"
+    },
+    {
+      "id": "2023-04-25T04:23:33.305Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "2"
+    },
+    {
+      "id": "2023-04-25T04:40:38.761Z",
+      "text": "b123",
+      "isCompleted": true,
+      "user_id": "2"
+    },
+    {
+      "id": "2023-04-26T07:58:25.999Z",
+      "text": "123",
+      "isCompleted": false,
+      "user_id": "2023-04-26T07:58:17.061Z"
+    },
+    {
+      "id": "2023-04-26T07:58:28.203Z",
+      "text": "c",
+      "isCompleted": false,
+      "user_id": "2023-04-26T07:58:17.061Z"
     }
   ]
 }

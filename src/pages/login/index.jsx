@@ -14,13 +14,14 @@ function Login() {
     // calling api
     try {
       const res = await instance.get("/users");
-      const isValid = res.data.some((user) => {
+      const user = res.data.find((user) => {
         return (
-          username.value === user.username && password.value === user.password
+          (username.value === user.email && password.value === user.password) ||
+          (username.value === user.username && password.value === user.password)
         );
       });
-      if (isValid) {
-        localStorage.setItem("isLogin", isValid);
+      if (user) {
+        localStorage.setItem("user_id", user.id);
         navigate("/todos");
       } else {
         setIsError(true);
@@ -30,13 +31,22 @@ function Login() {
     }
   };
 
+  function navSignup() {
+    navigate("/signup");
+  }
+
   return (
-    <div>
+    <div className="content">
       <form className="login-form" onSubmit={handleSubmit}>
-        <span>LOGIN</span>
+        <div className="login-header">
+          <span>LOGIN</span>
+          <button className="button" onClick={navSignup}>
+            Sign Up
+          </button>
+        </div>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Email"
           className={
             !isError
               ? "input-login username "
