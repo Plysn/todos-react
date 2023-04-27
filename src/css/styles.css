@@ -134,7 +134,6 @@ li i:hover {
 
 .login-form {
   width: 300px;
-  height: 220px;
   padding: 15px 30px;
 }
 
@@ -171,6 +170,6 @@ li i:hover {
 
 /* Sign up */
 .signup-content {
-  height: 330px;
+  min-height: 330px;
 }
 
