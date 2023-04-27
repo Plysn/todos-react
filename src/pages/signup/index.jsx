@@ -31,7 +31,6 @@ function SignUp() {
       const { data: listUser } = await instance.get("/users");
       const isExisted = listUser.some((user) => user.email === email);
       if (isExisted) {
-        // alert("Email đã tồn tại.");
         setError("email", { message: "Email đã tồn tại." });
         return;
       }
@@ -71,7 +70,7 @@ function SignUp() {
               }`}
             />
           )}
-        ></Controller>
+        />
         {errors.username?.message && (
           <span className="login-error">{errors.username.message}</span>
         )}
@@ -87,7 +86,7 @@ function SignUp() {
               }`}
             />
           )}
-        ></Controller>
+        />
         {errors.email?.message && (
           <span className="login-error">{errors.email.message}</span>
         )}
@@ -104,7 +103,7 @@ function SignUp() {
               }`}
             />
           )}
-        ></Controller>
+        />
         {errors.password?.message && (
           <span className="login-error">{errors.password.message}</span>
         )}
@@ -121,34 +120,10 @@ function SignUp() {
               }`}
             />
           )}
-        ></Controller>
+        />
         {errors.password_check?.message && (
           <span className="login-error">{errors.password_check.message}</span>
         )}
-        {/* <input
-          type="text"
-          placeholder="Họ và tên"
-          className={"input-login username "}
-          name="username"
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          className={"input-login "}
-          name="email"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className={"input-login "}
-          name="password"
-        />
-        <input
-          type="password"
-          placeholder="Password check"
-          className={"input-login password "}
-          name="password_check"
-        /> */}
         <button className="input-login button" type="submit">
           Sign up
         </button>
